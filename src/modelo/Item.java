@@ -85,16 +85,26 @@ public abstract class Item implements Producto {
     }
 
     /**
-     * Calcula el precio final aplicando solo el precio base.
-     * <p>
-     * Las subclases pueden ampliar este comportamiento si el negocio lo requiere.
-     * </p>
+     * Establece el porcentaje de descuento del producto.
      *
-     * @return precio final en euros, nunca negativo en condiciones normales
+     * @param porcentaje valor entre 0 y 100
+     * @throws IllegalArgumentException si el porcentaje esta fuera de rango
+     */
+    public void setPorcentajeDescuento(double porcentaje) {
+        if (porcentaje < 0 || porcentaje > 100) {
+            throw new IllegalArgumentException("El descuento debe estar entre 0 y 100");
+        }
+        this.porcentajeDescuento = porcentaje;
+    }
+
+    /**
+     * Calcula el precio final aplicando el descuento porcentual.
+     *
+     * @return precio final en euros tras el descuento
      */
     @Override
     public double calcularPrecioFinal() {
-        return precioBase;
+        return precioBase * (1 - porcentajeDescuento / 100.0);
     }
 
     /**
