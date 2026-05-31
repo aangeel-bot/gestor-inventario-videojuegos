@@ -32,8 +32,12 @@ public class Inventario {
 
     /**
      * Añade un producto al inventario.
+     * <p>
+     * El producto se inserta al final de la lista interna y queda disponible
+     * para consulta y venta inmediata.
+     * </p>
      *
-     * @param producto artículo a registrar
+     * @param producto artículo a registrar; no debe ser {@code null}
      */
     public void agregar(Producto producto) {
         productos.add(producto);
