@@ -25,6 +25,9 @@ public abstract class Item implements Producto {
     /** Cantidad de unidades disponibles. */
     protected int stock;
 
+    /** Porcentaje de descuento aplicable (0-100). */
+    protected double porcentajeDescuento;
+
     /**
      * Crea un nuevo item con los datos indicados.
      *
@@ -36,6 +39,7 @@ public abstract class Item implements Producto {
         this.nombre = nombre;
         this.precioBase = precioBase;
         this.stock = stock;
+        this.porcentajeDescuento = 0.0;
     }
 
     /**
@@ -62,6 +66,15 @@ public abstract class Item implements Producto {
      */
     public int getStock() {
         return stock;
+    }
+
+    /**
+     * Obtiene el porcentaje de descuento configurado.
+     *
+     * @return descuento entre 0 y 100
+     */
+    public double getPorcentajeDescuento() {
+        return porcentajeDescuento;
     }
 
     /**
