@@ -25,6 +25,9 @@ public abstract class Item implements Producto {
     /** Cantidad de unidades disponibles. */
     protected int stock;
 
+    /** Porcentaje de descuento aplicable (0-100). */
+    protected double porcentajeDescuento;
+
     /**
      * Crea un nuevo item con los datos indicados.
      *
@@ -36,6 +39,7 @@ public abstract class Item implements Producto {
         this.nombre = nombre;
         this.precioBase = precioBase;
         this.stock = stock;
+        this.porcentajeDescuento = 0.0;
     }
 
     /**
@@ -65,6 +69,15 @@ public abstract class Item implements Producto {
     }
 
     /**
+     * Obtiene el porcentaje de descuento configurado.
+     *
+     * @return descuento entre 0 y 100
+     */
+    public double getPorcentajeDescuento() {
+        return porcentajeDescuento;
+    }
+
+    /**
      * Reduce el stock en una unidad tras una venta.
      */
     public void reducirStock() {
@@ -72,13 +85,26 @@ public abstract class Item implements Producto {
     }
 
     /**
-     * Calcula el precio final aplicando un recargo fijo de gestion.
+     * Establece el porcentaje de descuento del producto.
      *
-     * @return precio final en euros con recargo incluido
+     * @param porcentaje valor entre 0 y 100
+     * @throws IllegalArgumentException si el porcentaje esta fuera de rango
+     */
+    public void setPorcentajeDescuento(double porcentaje) {
+        if (porcentaje < 0 || porcentaje > 100) {
+            throw new IllegalArgumentException("El descuento debe estar entre 0 y 100");
+        }
+        this.porcentajeDescuento = porcentaje;
+    }
+
+    /**
+     * Calcula el precio final combinando recargo fijo y descuento porcentual.
+     *
+     * @return precio final en euros tras recargo y descuento
      */
     @Override
     public double calcularPrecioFinal() {
-        return precioBase + 5.0;
+        return (precioBase + 5.0) * (1 - porcentajeDescuento / 100.0);
     }
 
     /**
