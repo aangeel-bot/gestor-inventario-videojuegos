@@ -72,16 +72,13 @@ public abstract class Item implements Producto {
     }
 
     /**
-     * Calcula el precio final aplicando solo el precio base.
-     * <p>
-     * Las subclases pueden ampliar este comportamiento si el negocio lo requiere.
-     * </p>
+     * Calcula el precio final aplicando un recargo fijo de gestion.
      *
-     * @return precio final en euros, nunca negativo en condiciones normales
+     * @return precio final en euros con recargo incluido
      */
     @Override
     public double calcularPrecioFinal() {
-        return precioBase;
+        return precioBase + 5.0;
     }
 
     /**
