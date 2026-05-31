@@ -73,8 +73,11 @@ public abstract class Item implements Producto {
 
     /**
      * Calcula el precio final aplicando solo el precio base.
+     * <p>
+     * Las subclases pueden ampliar este comportamiento si el negocio lo requiere.
+     * </p>
      *
-     * @return precio final en euros
+     * @return precio final en euros, nunca negativo en condiciones normales
      */
     @Override
     public double calcularPrecioFinal() {
