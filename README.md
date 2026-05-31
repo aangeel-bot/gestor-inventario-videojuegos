@@ -30,8 +30,6 @@ Tambien esta publicada en GitHub Pages:
 
 **https://aangeel-bot.github.io/gestor-inventario-videojuegos/**
 
-(Reemplaza el usuario y nombre del repo si usas otros distintos.)
-
 ## Estructura del proyecto
 
 ```
