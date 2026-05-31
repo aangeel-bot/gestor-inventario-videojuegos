@@ -23,7 +23,7 @@ java -cp out Main
 La documentacion HTML se encuentra en la carpeta `docs/`. Para regenerarla:
 
 ```bash
-generar-javadoc.bat
+javadoc -d docs -sourcepath src -encoding UTF-8 src/Main.java src/modelo/*.java src/excepciones/*.java
 ```
 
 Tambien esta publicada en GitHub Pages:

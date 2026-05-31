@@ -9,3 +9,11 @@ target/
 
 .DS_Store
 Thumbs.db
+
+# Materiales privados del alumno (no subir a GitHub)
+no entregable/
+
+# Scripts auxiliares
+*.bat
+*.cmd
+*.ps1
